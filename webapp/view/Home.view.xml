@@ -1,0 +1,44 @@
+<mvc:View controllerName="com.order.orderapp.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+                <Table id="idOrdersTable" items="{/Order_Details}">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Title text="{/title}"></Title>
+                            <ToolbarSpacer />
+                            <SearchField width="20%" search="onSearch" value="{/title}"></SearchField>
+                            <Button tootltip= "Sort" icon="sap-icon://sort" press="onSort"></Button>
+                            <Button tootltip = "Group" icon="sap-icon://group-2" press="onGroup"></Button>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column >
+                            <Text text="Sales order Id"/>
+                        </Column>
+                        <Column >
+                            <Text text="Product"></Text>
+                        </Column>
+                        <Column>
+                            <Text text="Status"></Text>
+                        </Column>
+                        <Column>
+                        <Text text="Gross Amount"></Text>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <ObjectIdentifier text="{OrderID}"/>
+                                <Text text="{ProductName}"/>
+                                <ObjectStatus text="{Quantity}" class="sapUiSmallMarginBottom" state="{State}" />
+                                <ObjectNumber number="{UnitPrice}" unit="EUR" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+        </content>
+    </Page>
+</mvc:View>
